@@ -59,7 +59,8 @@ class MainActivity : AppCompatActivity() {
        var categoria = calcularCategoriaIMC(imc)
 
         tvCategoriaIMC.setText(categoria)
-        tvCategoriaIMC.setTextColor(Color.RED)
+        tvCategoriaIMC.setTextColor(calcularColorCategoriaIMC(categoria))
+
     }
 
     fun  limpiar(){
@@ -76,16 +77,6 @@ class MainActivity : AppCompatActivity() {
         return peso/(estatura*estatura)
     }
 
-    /*
-    * IMC menor de 18, 5: Bajo peso.
-IMC entre 18,5 – 24,9: Peso normal.
-IMC entre 25 – 29,9: Sobrepeso.
-IMC entre 30 – 34,9: Obesidad tipo I.
-IMC entre 35 – 39,9: Obesidad tipo II.
-IMC mayor de 40: Obesidad tipo III.
-    *
-    * */
-
     fun calcularCategoriaIMC(imc:Float):String{
 
 
@@ -98,6 +89,23 @@ IMC mayor de 40: Obesidad tipo III.
             else -> "Obesidad tipo III"
         }
 
-        return categoria;
+        return categoria
     }
+
+
+    fun calcularColorCategoriaIMC(categoria:String):Int{
+
+
+        val resultado = when {
+            categoria =="Bajo peso" -> Color.BLUE
+            categoria =="Peso normal"-> Color.GREEN
+                categoria =="Sobrepeso"-> Color.YELLOW
+                categoria =="Obesidad tipo I"-> Color.RED
+                categoria =="Obesidad tipo II"-> Color.MAGENTA
+            else -> Color.MAGENTA
+        }
+
+        return resultado
+    }
+
 }
