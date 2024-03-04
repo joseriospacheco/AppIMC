@@ -9,13 +9,12 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-
     private lateinit var btnCalcular: Button
     private lateinit var btnLimpiar: Button
-    private  lateinit var etPeso: EditText
-    private  lateinit var etEstatura: EditText
-    private  lateinit var etIMC: EditText
-    private  lateinit var tvCategoriaIMC: TextView
+    private lateinit var etPeso: EditText
+    private lateinit var etEstatura: EditText
+    private lateinit var etIMC: EditText
+    private lateinit var tvCategoriaIMC: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -38,13 +37,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun inicializarComponentes() {
 
-        btnCalcular = findViewById<Button>(R.id.btn_calcular)
-        btnLimpiar = findViewById<Button>(R.id.btn_limpiar)
+        btnCalcular = findViewById(R.id.btn_calcular)
+        btnLimpiar = findViewById(R.id.btn_limpiar)
 
-        etPeso = findViewById<EditText>(R.id.et_peso)
-        etEstatura = findViewById<EditText>(R.id.et_estatura)
-        etIMC = findViewById<EditText>(R.id.et_imc)
-        tvCategoriaIMC = findViewById<TextView>(R.id.tv_categoria_imc)
+        etPeso = findViewById(R.id.et_peso)
+        etEstatura = findViewById(R.id.et_estatura)
+        etIMC = findViewById(R.id.et_imc)
+        tvCategoriaIMC = findViewById(R.id.tv_categoria_imc)
 
     }
 
@@ -58,16 +57,16 @@ class MainActivity : AppCompatActivity() {
 
        var categoria = calcularCategoriaIMC(imc)
 
-        tvCategoriaIMC.setText(categoria)
+        tvCategoriaIMC.text = categoria
         tvCategoriaIMC.setTextColor(calcularColorCategoriaIMC(categoria))
 
     }
 
     fun  limpiar(){
 
-        etPeso.setText("")
-        etEstatura.setText("")
-        etIMC.setText("")
+        etPeso.text.clear()
+        etEstatura.text.clear()
+        etIMC.text.clear()
 
         etPeso.requestFocus()
     }
